@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>ME3 - GET</title>
+</head>
+<body>
+	<form action="/cgi-bin/me3get.cgi">
+	<table align=center>
+	<tr><td>Name: </td><td><input type=text value="" name=name /></td></tr><br>
+	<tr><td>Age: </td><td><input type=number value="" name=age /></td></tr><br>
+	<tr><td>Course:   </td>
+	<td>
+		CoE <input type=radio value="CoE" name=course>
+		ECE <input type=radio value="ECE" name=course>
+		EE <input type=radio value="EE" name=course>
+	</td></tr><br>
+	<tr><td>Game:   </td>
+	<td>
+		DotA <input type=radio value="DotA" name=game>
+		LoL <input type=radio value="LoL" name=game>
+		HoN <input type=radio value="HoN" name=game>
+	</td></tr><br>
+	<tr><td>Color/s: </td>
+	<td>
+		Red <input type=checkbox value="red" name=color>
+		Blue <input type=checkbox value="blue" name=color>
+		Green <input type=checkbox value="green" name=color>	
+	</td></tr>
+	<tr><td>Choose: </td>
+	<td>
+		<select name='OS'>
+			<option value='Mac'>Mac</option>	
+			<option value='Windows'>Windows</option>
+			<option value='Ubuntu'>Ubuntu</option>
+		</select>
+	</td></tr>
+	<tr><td>About yourself: </td><td><textarea cols="31" rows="5" name=about></textarea></td>
+	<tr><td>Upload a file: </td><td><input type=file name=attach1></td></tr>
+	<input type=hidden name=formtype value="interview">
+	
+	</table>
+	<br>
+	<center><input type="submit" value="Submit!">
+	</form>
+</body>
+</html>

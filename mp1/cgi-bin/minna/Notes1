@@ -1,0 +1,136 @@
+.saved game - home, credits
+.load game - home credits
+>> if Save||Load
+
+trap room (dead) - home, credits, load, health
+0 life (dead) - home, credits, load, health
+slender man (dead), home credits, load, health
+saw (dead) home credits, load, health
+>> if trap||d1||d2||d3
+
+slender room - home, credits, store, save, load, inventory, health
+choose room - home, credits, store, save, load, inventory, health
+challenges - home, credits, store, save, load, inventory, health
+>> if slender||r1||r2||c1||c2||c3||c4||c5
+
+survive home, load, save, credits health
+>> if e1
+
+store home load save credits health back
+>>if Store
+
+credits home
+>>if Credits
+
+TWO
+challenges
+choose room
+>> if r1||r2||c1||c2||c3||c4||c5
+>>
+ONE
+1	save
+2	load
+3	store
+4	credit
+5	trap(dead)
+6	slender(dead)
+7	0health (dead)
+8	slender room
+9	survived
+10	saw (dead)
+>> if Save||Load||Store||Credit||Slender||d1||d2||d3||e1||trap
+
+
+SUBMIT FORMS
+NAME=navigation
+VALUES
+1	home
+2	store
+3	load
+4	save
+5	credits
+
+NAME=inventory
+VALUES
+1	USE HP
+2	USE SMR
+3	USE TRR
+
+NAME=shop
+VALUES
+1	HP
+2	SMR
+3	TRR
+
+**MAY <FORM> TAG NA LAHAT PERO DI PA NAKA LINK SA MP CGI
+***PRINT HIDDEN INPUT SA MAIN BODY TO IDENTIFY SCENE FOR SAVING GAME PURPOSES
+****ung mga value and name na nakalagay case sensitive na
+*****pakirandomize na lang ung arrangement ng choices
+
+HOME (HTML)
+	NEW GAME (START TO CHALLENGE 1) <-- type=submit name=scene value=s1
+	LOAD GAME (GO TO LOAD GAME) <-- type=submit name=navigation value=Load
+
+NAME=scene
+value=s1
+	ACCEPT --> money++; name=scene value=c2
+	SOMEBODY HELP ME --> health--; name=scene value=s1
+	KILL ME --> health==0; name=end value=d1
+
+value=c1
+	CORRECT --> money++; name=scene value=c2
+	SLENDER --> name=scene value=slender
+	WRONG --> health--; name=scene value=c1
+
+value=c2
+	CORRECT --> money++; name=scene value=r1
+	SLENDER --> name=scene value=slender
+	WRONG --> health--; name=scene value=c2
+
+value=r1
+	TRAP --> health==0; name=end value=trap
+	SLENDER --> name=scene value=slender
+	CHALLENGE --> name=scene value=c3
+
+value=c3
+	CORRECT --> money++; name=scene value=r2
+	SLENDER --> name=scene value=slender
+	WRONG --> health--; name=scene value=c3
+
+value=r2
+	CHALLENGE --> health==0; name=scene value=c4
+	LOOP --> name=scene value=c2
+	CHALLENGE --> name=scene value=c5
+
+value=c4
+	CORRECT --> money++; name=scene value=c5
+	SLENDER --> name=scene value=slender
+	WRONG --> health--; name=scene value=c4
+
+value=c5
+	CORRECT --> money++; name=end value=e1
+	SLENDER --> name=scene value=slender
+	WRONG --> health--; name=scene value=c5
+
+value=slender
+	BACK --> name=scene value=last room or challenge
+	DEAD --> after n time --> name=end value=d2
+
+NAME=end
+value=d1
+	DEATH BY SAW
+value=trap
+	DEATH BY TRAP
+value=e1
+	SURVIVED
+value=d2
+	DEATH BY SLENDER
+value=d3
+	DEATH BY STUPIDITY 
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Machine Exercise 06</title>
+	<style type="text/css">
+	body {
+		font-family: Arial, sans serif;
+	}
+	table {
+		width: 50%;
+		padding: 10px;
+		/*border: 1px solid #c0c0c0;*/
+	}
+	td, tr {
+		border: 1px solid #c0c0c0;
+		text-align: center;
+		padding: 20px 5px;
+		min-width: 100px;
+	}
+	</style>
+</head>
+<body>
+	<form action="cgi-bin/ME06_201366339.cgi" method="GET">
+		<table>
+<!--	<tr>
+				<td>Database</td>
+				<td><input type="text" name="database" value="db" /></td>
+			</tr>
+-->
+
+			<tr>
+				<td>VALUES:</td>
+				<td>Item</td>
+				<td><input type="text" name="item" /></td>
+				<td>Price</td>
+				<td><input type="text" name="price" /></td>
+			</tr>
+			<tr>
+				<td>WHERE: </td>
+				<td>Item</td>
+				<td><input type="text" name="witem" /></td>
+				<td>Price</td>
+				<td><input type="text" name="wprice" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="action" value="insert" /></td>
+				<td><input type="submit" name="action" value="delete" /></td>
+				<td><input type="submit" name="action" value="update" /></td>
+				<td><input type="submit" name="action" value="select" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
